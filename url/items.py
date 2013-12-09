@@ -8,5 +8,6 @@ from scrapy.item import Item, Field
 class UrlItem(Item):
     # define the fields for your item here like:
     # name = Field()
-    url = Field()
+    links = Field()
+    imgs = Field()
     pass
