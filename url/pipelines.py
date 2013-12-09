@@ -4,11 +4,12 @@
 # See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
 import os
-
+import time
 class UrlPipeline(object):
     def __init__(self):
-        self.links = open('links.log', 'wb')
-        self.imgs = open('imgs.log', 'wb')
+        date = time.strftime('%Y-%m-%d-%H-%M-%S', time.localtime())
+        self.links = open('links-' + date + '.log', 'wb')
+        self.imgs = open('imgs-' + date + '.log', 'wb')
 
     def process_item(self, item, spider):
         for link in item['links']:
